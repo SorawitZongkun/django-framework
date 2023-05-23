@@ -9,6 +9,10 @@ urlpatterns = [
     path('page_b/', views.page_b),
     path('page_c/', views.page_c),
 
-    # Step 8 : Add data
+    # Step 8 : Install bootstrap and templates
+    # Step 9 : Add data
+    path('create/', views.create),
 
+    # Step 10 : List page
+    path('', views.index),
 ]

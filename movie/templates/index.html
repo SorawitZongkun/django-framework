@@ -1,0 +1,42 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+  <title>Home</title>
+{% endblock %}
+
+{% block content %}
+<h2 class="text-center">ข้อมูลภาพยนตร์และอนิเมะเทั้งหมด</h2>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      <strong>{{ message }}</strong>
+    </div>
+  {% endfor %}
+{% endif %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">รหัสภาพยนตร์</th>
+      <th scope="col">ชื่อภาษาไทย</th>
+      <th scope="col">ชื่อภาษาอังกฤษ</th>
+      <th scope="col">ราคา</th>
+      <th scope="col">แก้ไข</th>
+      <th scope="col">ลบ</th>
+    </tr>
+  </thead>
+  <!-- <tbody>
+    {% for person in all_person %}
+      <tr>
+        <th scope="row">{{ person.id }}</th>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.date }}</td>
+        <td><a href="/edit/{{ person.id }}" class="btn btn-warning">แก้ไข</a></td>
+        <td><a href="/delete/{{ person.id }}" class="btn btn-danger" onclick="return confirm('ต้องการลบข้อมูล {{ person.name }} หรือไม่?')">ลบ</a></td>
+      </tr>
+    {% endfor %}
+  </tbody> -->
+</table>
+{% endblock %}

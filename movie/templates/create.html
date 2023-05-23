@@ -1,0 +1,44 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+  <title>Create</title>
+{% endblock %}
+
+{% block content %}
+  <h2 class="text-center">แบบฟอร์มบันทึกข้อมูล</h2>
+
+  <form method="post" action="">
+    {% csrf_token %}
+
+    <div class="form-group mb-3">
+      <label for="name">ชื่อภาษาไทย</label>
+      <input type="text" name="name_th" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="name">ชื่อภาษาอังกฤษ</label>
+      <input type="text" name="name_en" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="age">ลำดับที่ชอบ</label>
+      <input type="number" name="number" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="age">ราคา</label>
+      <input type="number" name="price" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="age">ช่องทางรับชม</label>
+      <select class="form-select" aria-label="Default select example" name="channel">
+        <option value="netflix" selected>Netflix</option>
+        <option value="viu">VIU</option>
+        <option value="youtube">Youtube</option>
+      </select>
+    </div>
+
+    <input type="submit" value="บันทึกข้อมูล" class="btn btn-success">
+  </form>
+{% endblock %}
