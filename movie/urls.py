@@ -15,4 +15,10 @@ urlpatterns = [
 
     # Step 10 : List page
     path('', views.index),
+
+    # Step 11 : Edit data
+    path('edit/<movie_id>', views.edit),
+
+    # Step 12 : Delete data
+    path('delete/<movie_id>', views.delete),
 ]

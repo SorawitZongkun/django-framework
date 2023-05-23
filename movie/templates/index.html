@@ -22,21 +22,23 @@
       <th scope="col">ชื่อภาษาไทย</th>
       <th scope="col">ชื่อภาษาอังกฤษ</th>
       <th scope="col">ราคา</th>
+      <th scope="col">วันที่สร้าง</th>
       <th scope="col">แก้ไข</th>
       <th scope="col">ลบ</th>
     </tr>
   </thead>
-  <!-- <tbody>
-    {% for person in all_person %}
+  <tbody>
+    {% for movie in movies %}
       <tr>
-        <th scope="row">{{ person.id }}</th>
-        <td>{{ person.name }}</td>
-        <td>{{ person.age }}</td>
-        <td>{{ person.date }}</td>
-        <td><a href="/edit/{{ person.id }}" class="btn btn-warning">แก้ไข</a></td>
-        <td><a href="/delete/{{ person.id }}" class="btn btn-danger" onclick="return confirm('ต้องการลบข้อมูล {{ person.name }} หรือไม่?')">ลบ</a></td>
+        <th scope="row">{{ movie.id }}</th>
+        <td>{{ movie.name_th }}</td>
+        <td>{{ movie.name_en }}</td>
+        <td>{{ movie.price }}</td>
+        <td>{{ movie.created_date }}</td>
+        <td><a href="/movie/edit/{{ movie.id }}" class="btn btn-warning">แก้ไข</a></td>
+        <td><a href="/movie/delete/{{ movie.id }}" class="btn btn-danger" onclick="return confirm('ต้องการลบข้อมูล {{ movie.name_th }} หรือไม่?')">ลบ</a></td>
       </tr>
     {% endfor %}
-  </tbody> -->
+  </tbody>
 </table>
 {% endblock %}

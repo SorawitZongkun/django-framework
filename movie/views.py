@@ -53,12 +53,47 @@ def create(request):
 
 
 def index(request):
-    return render(request, 'index.html')
+    movies = Movie.objects.all()
+    # movies = Movie.objects.filter(number=2)
+    return render(request, 'index.html', {"movies": movies})
 
 
-def edit(request):
-    return render(request, 'page_c.html')
+def edit(request, movie_id):
+    if request.method == "POST":
+        # Get reqeust
+        name_th = request.POST['name_th']
+        name_en = request.POST['name_en']
+        number = request.POST['number']
+        price = request.POST['price']
+        channel = request.POST['channel']
+        print(name_th, name_en, number, price, channel)
+
+        # Save data
+        movie = Movie.objects.get(id=movie_id)
+        movie.name_th = name_th
+        movie.name_en = name_en
+        movie.number = number
+        movie.price = price
+        movie.channel = channel
+        movie.save()
+
+        # Send message
+        messages.success(request, "อัพเดทข้อมูลเรียบร้อยแล้ว")
+
+        # Change route
+        return redirect("/movie")
+    else:
+        # ดึงข้อมูลประชากรที่ต้องการแก้ไข
+        movie = Movie.objects.get(id=movie_id)
+        return render(request, "edit.html", {"movie": movie})
 
 
-def delete(request):
-    return render(request, 'page_c.html')
+def delete(request, movie_id):
+    movie = Movie.objects.get(id=movie_id)
+    movie.delete()
+
+    # Send message
+    messages.success(request, "ลบข้อมูลเรียบร้อยแล้ว")
+
+    # Change route
+    return redirect("/movie")
