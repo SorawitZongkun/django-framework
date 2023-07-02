@@ -7,11 +7,18 @@
 {% block content %}
 <h2 class="text-center">ข้อมูลภาพยนตร์และอนิเมะเทั้งหมด</h2>
 
+<!-- https://docs.djangoproject.com/en/3.0/ref/contrib/messages/#message-tags -->
 {% if messages %}
   {% for message in messages %}
-    <div class="alert alert-success" role="alert">
-      <strong>{{ message }}</strong>
-    </div>
+    {% if messages.tags == "error" %}
+      <div class="alert alert-danger" role="alert">
+        <strong>{{ message }}</strong>
+      </div>
+    {% else %}
+      <div class="alert alert-success" role="alert">
+        <strong>{{ message }}</strong>
+      </div>
+    {% endif %}
   {% endfor %}
 {% endif %}
 

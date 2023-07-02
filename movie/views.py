@@ -68,6 +68,9 @@ def edit(request, movie_id):
         channel = request.POST['channel']
         print(name_th, name_en, number, price, channel)
 
+        # Validation and Send message
+        # messages.error(request, "ข้อมูลไม่ถูกต้อง")
+
         # Save data
         movie = Movie.objects.get(id=movie_id)
         movie.name_th = name_th

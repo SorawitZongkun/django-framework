@@ -33,9 +33,9 @@
     <div class="form-group mb-3">
       <label for="age">ช่องทางรับชม</label>
       <select class="form-select" aria-label="Default select example" name="channel">
-        <option value="netflix" selected>Netflix</option>
-        <option value="viu">VIU</option>
-        <option value="youtube">Youtube</option>
+        <option value="netflix" {% if movie.channel == 'netflix' %}selected{% endif %}>Netflix</option>
+        <option value="viu" {% if movie.channel == 'viu' %}selected{% endif %}>VIU</option>
+        <option value="youtube" {% if movie.channel == 'youtube' %}selected{% endif %}>Youtube</option>
       </select>
     </div>
 
